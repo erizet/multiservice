@@ -1,0 +1,41 @@
+version: '3'
+services:
+  ui:
+    image: ui
+    tty: true
+    build:
+      context: ./ui/.devcontainer
+      dockerfile: ./Dockerfile
+      args:
+        - VARIANT=16-bullseye
+    volumes:
+      # Mount the root folder that contains .git
+      - .:/workspace:cached    
+    # depends_on:
+    #   - backend
+    ports:
+      - "3000:3000"
+    networks:
+      - multiservice
+    #command: /bin/sh -c "while sleep 1000; do :; done"
+
+  backend:
+    image: backend
+    tty: true
+    build: 
+      context: ./backend/.devcontainer
+      dockerfile: ./Dockerfile
+      args:
+        - VARIANT=6.0-bullseye
+        - NODE_VERSION=none
+    volumes:
+      # Mount the root folder that contains .git
+      - .:/workspace:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    networks:
+      - multiservice
+
+networks:
+  multiservice:
+    driver: bridge
+
