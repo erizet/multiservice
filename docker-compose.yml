@@ -31,7 +31,7 @@ services:
     volumes:
       # Mount the root folder that contains .git
       - .:/workspace:cached
-    command: /bin/sh -c "while sleep 1000; do :; done"
+    #command: /bin/sh -c "while sleep 1000; do :; done"
     networks:
       - multiservice
 
