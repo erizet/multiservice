@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   
   useEffect(() => {
-    fetch('http://localhost:5000/weatherforecast')
+    fetch('https://localhost:5000/weatherforecast')
     .then(response => response.json())
     .then(json => console.log(json))
     }, []);
@@ -15,7 +15,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Erik53 <code>src/App.tsx</code> and save to reload.
         </p>
         <a
           className="App-link"
