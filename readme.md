@@ -3,7 +3,7 @@
 ## Filewatcher in React project
 Watching files does not work in a container out of the box. (Maybe becuse the docker host is WSL2?) Webpack can poll for changes instead. Create a <code>.env</code> file and add <b>WATCHPACK_POLLING=true</b> to enable polling.
 
-## Access webapi from container in the sam docker network
+## Access webapi from container in the same docker network
 
 To be able to accesss the webapi from a container on the same network the webapi has to listen to all hosts. In launch.json change localhost:5000 to
 <code>"ASPNETCORE_URLS": "https://*:5000"</code>.
